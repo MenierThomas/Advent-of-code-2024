@@ -2,8 +2,9 @@ fd = "str.txt"
 
 def is_correctly_ordered(update, order_relation):
     for i in range(len(update)):
+        priority_over = [second for first, second in order_relation if first == update[i]]
         for j in range(i):
-            if update[j] in [second for first, second in order_relation if first == update[i]]:
+            if update[j] in priority_over:
                 return False
     return True
 
